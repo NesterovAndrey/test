@@ -31,11 +31,10 @@ class RatingControllerTest {
   @Test
   @DisplayName("When the average rating is requested then it's correctly calculated")
   void averageRatingCorrect() throws Exception {
-    //Don't know if deleted hotels must be used for rating calculations?
     mockMvc
-        .perform(get("/rating/city/2"))
-        .andExpect(status().is2xxSuccessful())
-        .andExpect(jsonPath("numberOfRatings", equalTo(2)))
-        .andExpect(jsonPath("averageRating", closeTo(8.45, 0.01)));
+            .perform(get("/rating/city/2"))
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(jsonPath("numberOfRatings", equalTo(4)))
+            .andExpect(jsonPath("averageRating", closeTo(6.05, 0.01)));
   }
 }
